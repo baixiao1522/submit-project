@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="zh-hans-cn">
+<head>
+<meta charset="UTF-8">
+<meta name="Author" content="Rin">
+<title>无缝滚动</title>
+<style>
+*{margin:0;padding:0;}
+li{list-style:none;}
+	body{
+	background-color: #F7F5F5;
+}
+.one{margin:50px auto;height:160px;width:1000px;overflow:hidden;position:relative; }
+.one ul{height:160px;width:100000px;position:absolute;left:0;} /*ul width的宽不能过小*/
+.one ul li{display:block;float:left;margin:5px;height:150px;border-radius:5px;position:relative;}
+.one ul li a{display:inline-block;height:150px;} 
+.one ul li img{border-radius:5px;display:block;}
+.one ul li a span{height:0;display:block;background:rgba(0,0,0,0.4);position:absolute;bottom:0;color:#fff;font-size:0px;}
+.one ul li a:hover span{height:150px;line-height:150px;font-size:20px;text-align:center;transition:all 0.7s;}
+
+.two{margin:50px auto;height:90px;width:1000px;overflow:hidden;position:relative; }
+.two ul{height:90px;width:100000px;position:absolute;left:0;}/*ul width的宽不能过小*/
+.two ul li{display:block;float:left;margin:5px;height:80px;border-radius:5px;position:relative;}
+.two ul li a{display:inline-block;height:80px;} 
+.two ul li img{display:block;border-radius:5px;height:80px;}
+.two ul li a span{height:0;display:block;background:rgba(0,0,0,0.4);position:absolute;bottom:0;color:#fff;font-size:0px;}
+.two ul li a:hover span{height:80px;line-height:80px;font-size:20px;text-align:center;transition:all 0.7s;}
+
+</style>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<!--用最新的jQuery3.2.1 会好一些  -->
+</head>
+<body>
+	<div class="one">
+       <ul>
+       	<li><a href="javascript:;"><img src="images/a1.png" alt=""><span>hi~hi！我是孝文</span></a></li><!-- 神啊！请赐给大师兄一个女盆友吧！-->
+       	<li><a href="javascript:;"><img src="images/a2.png" alt=""><span>hi~hi！我们是单身汪</span></a></li>
+       	<li><a href="javascript:;"><img src="images/a3.png" alt=""><span>hi~hi！我是小辉</span></a></li>
+       	<li><a href="javascript:;"><img src="images/a4.png" alt=""><span>hi~hi！我是Rin</span></a></li>
+       </ul>
+	</div>
+    <div class="two">
+       <ul>
+       	<li><a href="javascript:;"><img src="images/pic1.png" alt=""><span>LOGO1</span></a></li>
+       	<li><a href="javascript:;"><img src="images/pic2.png" alt=""><span>LOGO2</span></a></li>
+       	<li><a href="javascript:;"><img src="images/pic3.png" alt=""><span>LOGO3</span></a></li>
+       	<li><a href="javascript:;"><img src="images/pic4.png" alt=""><span>LOGO4</span></a></li>
+       	<li><a href="javascript:;"><img src="images/pic5.png" alt=""><span>LOGO5</span></a></li>
+       	<li><a href="javascript:;"><img src="images/pic6.png" alt=""><span>LOGO6</span></a></li>
+       </ul>
+	</div>
+<script>
+/* 有的浏览器第一次加载不会动画  刷新当前页面一次 可以不加的*/
+function reurl(){ 
+	   url = location.href;var times = url.split("?"); 
+	   if(times[1] != 1){url += "?1"; self.location.replace(url);} 
+}
+ onload=reurl ;
+/* 有的浏览器第一次加载不会动画  刷新当前页面一次 */
+
+$(document).ready(function () {
+    var box0 = $(".one"),v0 = 1.5; //这里添加滚动的对象和其速率
+	var box1 = $(".two"),v1 = 1;
+	Rin(box0,v0);
+	Rin(box1,v1); 
+
+		 function Rin($Box,v){//$Box移动的对象，v对象移动的速率
+           var $Box_ul = $Box.find("ul"),
+               $Box_li = $Box_ul.find("li"),
+               $Box_li_span = $Box_li.find("span"),
+	           left = 0,
+	           s=0,
+	           timer;//定时器
+
+			      $Box_li.each(function(index){
+			       $($Box_li_span[index]).width($(this).width());//hover
+                   s += $(this).outerWidth(true); //即要滚动的长度
+			     })
+			      
+		window.requestAnimationFrame = window.requestAnimationFrame||function(Tmove){return setTimeout(Tmove,1000/60)};
+	    window.cancelAnimationFrame = window.cancelAnimationFrame||clearTimeout;
+			      
+                  if( s>=$Box.width()){//如果滚动长度超出Box长度即开始滚动，没有的话就不执行滚动
+                           $Box_li.clone(true).appendTo($Box_ul);                       
+					       Tmove();
+						      function Tmove(){
+						           //运动是移动left  从0到-s;（个人习惯往左滚）
+						           left -= v;
+						           if(left <= -s){left = 0;$Box_ul.css("left",left)}else{ $Box_ul.css("left",left) }
+					                   timer = requestAnimationFrame(Tmove);   
+						      }
+					    $Box_ul.hover(function(){cancelAnimationFrame(timer)},function(){Tmove()})    
+		          }  
+ 
+	} 	 	
+}) 	
+</script>	
+</body>
+</html>

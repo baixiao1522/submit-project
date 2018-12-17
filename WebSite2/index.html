@@ -1,0 +1,37 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>my-i18n</title>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/jquery.i18n.properties-1.0.9.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div>
+            <label id="label_username"></label>
+            <input type="text" id="username"></input>
+        </div>
+        <div>
+            <label id="label_password"></label>
+            <input type="password" id="password"></input>
+        </div>
+        <input type="button" id="button_login" />
+    </div>
+    <script>
+        jQuery.i18n.properties({//加载资浏览器语言对应的资源文件
+            name: 'strings', //资源文件名称
+            path: 'i18n/', //资源文件路径
+            mode: 'map', //用Map的方式使用资源文件中的值
+            language: "zh",
+            callback: function () {//加载成功后设置显示内容
+                //用户名
+                $('#label_username').html($.i18n.prop('User Name'));
+                //密码
+                $('#label_password').html($.i18n.prop('Password'));
+                //登录
+                $('#button_login').val($.i18n.prop('Login'));
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.10.2.js"></script>
+    <style>
+        ul li{list-style:none;}
+        /*分类陈列*/
+        .accordion{height: 610px;overflow: hidden;width:1200px;margin:0 auto;}
+        .accordionBox{height: 610px;overflow: hidden;width:1200px;}
+        .singleWrap{width:170px;float: left;overflow: hidden;}
+        .singleBox{width:1250px;overflow: hidden;}
+        .single{float: left;position: relative;}
+        .singleN{position: absolute;top:426px;left:50%;margin-left:-37px;width:74px;}
+        .singleN p{color:#fff;width: 74px;text-align: center;text-indent:0;font-size:25px;margin:0;opacity:0.8;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);}
+        /*基本陈列展开*/
+        .off{float:right;margin-right:24px;margin-top:-14px;cursor: pointer;}
+        .detail{width:1030px;height:568px;background:url("images/jbcl_bg_07.jpg") no-repeat center top;padding-top:42px;float: left;}
+        .detail h2{width:900px;font-size:22px;color:#333333;text-align:left;margin-left:35px;font-weight:300;opacity:0.8;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);}
+        .showBox h2{font-size:18px;color:#333333;text-align:left;margin-left:35px;font-weight:300;opacity:0.8;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);}
+        .showBox{display:none;}
+        .showList{margin-top:6px;}
+        .showList li{text-align: left;clear: both;height:38px;line-height:38px;}
+        .showList li img{float: left;margin-top:16px;margin-right:14px;margin-left:39px;}
+        .showList li a{float: left;font-size:16px;color:#666666;}
+
+        .courseBox{
+            clear: both;
+            overflow: hidden;
+        }
+        .verticalLine{
+            width: 2px;
+            height: 34px;
+            background:#da3737;
+            margin-left:6px;
+            margin-bottom:3px;
+        }
+        .verticalLineLeft{width:590px;}
+        .marker{
+            float: left;
+            margin-right:9px;
+            margin-left:32px;
+        }
+        .courseBox p{
+            cursor: pointer;
+            width: 315px!important;
+            text-indent:0;
+            text-align:left;
+            float: left;
+            /*line-height:26px;*/
+            margin-top:-3px;
+            font-size:14px;
+            color: #333333;
+            opacity:0.8;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+        }
+        .addst{color:#930713!important;font-size:18px!important;}
+    </style>
+</head>
+<body>
+<div class="accordion" >
+    <div style="width: 1200px;overflow: hidden;">
+        <div class="singleWrap">
+            <div class="singleBox">
+                <div class="single">
+                    <img src="images/jbcl_30.jpg" alt="">
+                    <div class="singleN">
+                        <p>1927</p><p style="margin:5px 0;">|</p><p>1937</p>
+                        <p class="zkan" style="margin-top:28px;cursor: pointer;" ><img src="images/jbcl_07.png" alt=""></p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <img src="images/jbclOff_07.jpg" alt="" class="off">
+                    <h2>第一部分  植根红都  光辉起点——土地革命战争时期的人民检察</h2>
+                    <div style="margin-top:30px;">
+                        <div class="verticalLine" style="margin-left:38px;"></div>
+                        <div style="float: left;">
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第一单元  工农民主政权的诞生</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_02.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course addst">第二单元  苏区检察机构</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第三单元  苏区检察工作</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第四单元  苏区检察机构主要领导人</p>
+                            </div>
+                        </div>
+                        <div class="verticalLineLeft" style="float: left;margin-top:-18px;">
+                            <div class="showBox" >
+                                <h2>工农民主政权的诞生</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox" style="display: block;">
+                                <h2>苏区检察机构</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察工作</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察机构主要领导人</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="singleWrap">
+            <div class="singleBox">
+                <div class="single">
+                    <img src="images/jbcl_31.jpg" alt="">
+                    <div class="singleN">
+                        <p>1927</p><p style="margin:5px 0;">|</p><p>1937</p>
+                        <p class="zkan" style="margin-top:28px;cursor: pointer;" ><img src="images/jbcl_07.png" alt=""></p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <img src="images/jbclOff_07.jpg" alt="" class="off">
+                    <h2>第一部分  植根红都  光辉起点——土地革命战争时期的人民检察</h2>
+                    <div style="margin-top:30px;">
+                        <div class="verticalLine" style="margin-left:38px;"></div>
+                        <div style="float: left;">
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第一单元  工农民主政权的诞生</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_02.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course addst">第二单元  苏区检察机构</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第三单元  苏区检察工作</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第四单元  苏区检察机构主要领导人</p>
+                            </div>
+                        </div>
+                        <div class="verticalLineLeft" style="float: left;margin-top:-18px;">
+                            <div class="showBox" >
+                                <h2>工农民主政权的诞生</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox" style="display: block;">
+                                <h2>苏区检察机构</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察工作</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察机构主要领导人</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="singleWrap">
+            <div class="singleBox">
+                <div class="single">
+                    <img src="images/jbcl_32.jpg" alt="">
+                    <div class="singleN">
+                        <p>1927</p><p style="margin:5px 0;">|</p><p>1937</p>
+                        <p class="zkan" style="margin-top:28px;cursor: pointer;" ><img src="images/jbcl_07.png" alt=""></p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <img src="images/jbclOff_07.jpg" alt="" class="off">
+                    <h2>第一部分  植根红都  光辉起点——土地革命战争时期的人民检察</h2>
+                    <div style="margin-top:30px;">
+                        <div class="verticalLine" style="margin-left:38px;"></div>
+                        <div style="float: left;">
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第一单元  工农民主政权的诞生</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_02.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course addst">第二单元  苏区检察机构</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第三单元  苏区检察工作</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第四单元  苏区检察机构主要领导人</p>
+                            </div>
+                        </div>
+                        <div class="verticalLineLeft" style="float: left;margin-top:-18px;">
+                            <div class="showBox" >
+                                <h2>工农民主政权的诞生</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox" style="display: block;">
+                                <h2>苏区检察机构</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察工作</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察机构主要领导人</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="singleWrap">
+            <div class="singleBox">
+                <div class="single">
+                    <img src="images/jbcl_33.jpg" alt="">
+                    <div class="singleN">
+                        <p>1927</p><p style="margin:5px 0;">|</p><p>1937</p>
+                        <p class="zkan" style="margin-top:28px;cursor: pointer;" ><img src="images/jbcl_07.png" alt=""></p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <img src="images/jbclOff_07.jpg" alt="" class="off">
+                    <h2>第一部分  植根红都  光辉起点——土地革命战争时期的人民检察</h2>
+                    <div style="margin-top:30px;">
+                        <div class="verticalLine" style="margin-left:38px;"></div>
+                        <div style="float: left;">
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第一单元  工农民主政权的诞生</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_02.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course addst">第二单元  苏区检察机构</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第三单元  苏区检察工作</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第四单元  苏区检察机构主要领导人</p>
+                            </div>
+                        </div>
+                        <div class="verticalLineLeft" style="float: left;margin-top:-18px;">
+                            <div class="showBox" >
+                                <h2>工农民主政权的诞生</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox" style="display: block;">
+                                <h2>苏区检察机构</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察工作</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察机构主要领导人</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="singleWrap">
+            <div class="singleBox">
+                <div class="single">
+                    <img src="images/jbcl_34.jpg" alt="">
+                    <div class="singleN">
+                        <p>1927</p><p style="margin:5px 0;">|</p><p>1937</p>
+                        <p class="zkan" style="margin-top:28px;cursor: pointer;" ><img src="images/jbcl_07.png" alt=""></p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <img src="images/jbclOff_07.jpg" alt="" class="off">
+                    <h2>第一部分  植根红都  光辉起点——土地革命战争时期的人民检察</h2>
+                    <div style="margin-top:30px;">
+                        <div class="verticalLine" style="margin-left:38px;"></div>
+                        <div style="float: left;">
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第一单元  工农民主政权的诞生</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_02.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course addst">第二单元  苏区检察机构</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第三单元  苏区检察工作</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第四单元  苏区检察机构主要领导人</p>
+                            </div>
+                        </div>
+                        <div class="verticalLineLeft" style="float: left;margin-top:-18px;">
+                            <div class="showBox" >
+                                <h2>工农民主政权的诞生</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox" style="display: block;">
+                                <h2>苏区检察机构</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察工作</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察机构主要领导人</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="singleWrap">
+            <div class="singleBox">
+                <div class="single">
+                    <img src="images/jbcl_35.jpg" alt="">
+                    <div class="singleN">
+                        <p>1927</p><p style="margin:5px 0;">|</p><p>1937</p>
+                        <p class="zkan" style="margin-top:28px;cursor: pointer;" ><img src="images/jbcl_07.png" alt=""></p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <img src="images/jbclOff_07.jpg" alt="" class="off">
+                    <h2>第一部分  植根红都  光辉起点——土地革命战争时期的人民检察</h2>
+                    <div  style="margin-top:30px;">
+                        <div class="verticalLine" style="margin-left:38px;"></div>
+                        <div style="float: left;">
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第一单元  工农民主政权的诞生</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_02.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course addst">第二单元  苏区检察机构</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第三单元  苏区检察工作</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第四单元  苏区检察机构主要领导人</p>
+                            </div>
+                        </div>
+                        <div class="verticalLineLeft" style="float: left;margin-top:-18px;">
+                            <div class="showBox" >
+                                <h2>工农民主政权的诞生</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox" style="display: block;">
+                                <h2>苏区检察机构</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察工作</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察机构主要领导人</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="singleWrap">
+            <div class="singleBox">
+                <div class="single">
+                    <img src="images/jbcl_36.jpg" alt="">
+                    <div class="singleN">
+                        <p>1927</p><p style="margin:5px 0;">|</p><p>1937</p>
+                        <p class="zkan" style="margin-top:28px;cursor: pointer;" ><img src="images/jbcl_07.png" alt=""></p>
+                    </div>
+                </div>
+                <div class="detail">
+                    <img src="images/jbclOff_07.jpg" alt="" class="off">
+                    <h2>第一部分  植根红都  光辉起点——土地革命战争时期的人民检察</h2>
+                    <div style="margin-top:30px;">
+                        <div class="verticalLine" style="margin-left:38px;"></div>
+                        <div style="float: left;">
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第一单元  工农民主政权的诞生</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_02.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course addst">第二单元  苏区检察机构</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第三单元  苏区检察工作</p>
+                            </div>
+                            <div class="courseBox">
+                                <div class="marker">
+                                    <img src="images/jbcl_icon_00.png" alt="">
+                                    <div class="verticalLine"></div>
+                                </div>
+                                <p class="course">第四单元  苏区检察机构主要领导人</p>
+                            </div>
+                        </div>
+                        <div class="verticalLineLeft" style="float: left;margin-top:-18px;">
+                            <div class="showBox" >
+                                <h2>工农民主政权的诞生</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox" style="display: block;">
+                                <h2>苏区检察机构</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察工作</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+                            <div class="showBox">
+                                <h2>苏区检察机构主要领导人</h2>
+                                <ul class="showList">
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">1.国家公诉员和国家公诉处</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">2.工农检察部</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">3.法院（裁判部）检察长、检察员</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">4.国家政治保卫局</a></li>
+                                    <li><img src="images/jbcl_icon_01.png" alt=""><a href="">5.军事检查所</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(window).load(function () {
+//        $(".courseBox:last-child").find(".verticalLine").hide();
+        var l=$(".courseBox").length;
+        var h=0;
+        for(var i=0;i<l-1;i++){
+            h=$(".courseBox").eq(i).find(".course").height()+34-26+"px";
+            $(".courseBox").eq(i).find(".course").prev(".marker").find(".verticalLine").css({"height":h});
+        };
+        $(".courseBox .course").hover(function () {
+            var index=$(this).parent().index();
+            $(this).addClass("addst").siblings(".marker").find("img").attr("src","images/jbcl_icon_02.png");
+            $(this).parent().siblings().find(".course").removeClass("addst").siblings(".marker").find("img").attr("src","images/jbcl_icon_00.png");
+            $(this).parent().parent().next(".verticalLineLeft").find(".showBox").eq(index).show().siblings().hide();
+        });
+        $(".off").click(function () {
+            $(".zkan").parents(".singleWrap").animate({"width":"170"},500)
+        });
+        $(".zkan").click(function () {
+            console.log($(this).parents(".singleWrap").index());
+            $(this).parents(".singleWrap").animate({"width":"1200px"},500)
+            $(this).parents(".singleWrap").siblings().animate({"width":"0"},500)
+        })
+    })
+</script>
+
+</body>
+</html>
